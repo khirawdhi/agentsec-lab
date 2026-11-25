@@ -38,17 +38,17 @@ def hardened_read(resource: Resource) -> bool:
     ).allowed
 
 
-def test_vulnerable_allows_legitimate_access():
+def test_vulnerable_allows_legitimate_access() -> None:
     assert vulnerable_read(PUBLIC_REPORT)
 
 
-def test_vulnerable_reproduces_confused_deputy():
+def test_vulnerable_reproduces_confused_deputy() -> None:
     assert vulnerable_read(RESTRICTED_REPORT)
 
 
-def test_hardened_preserves_legitimate_access():
+def test_hardened_preserves_legitimate_access() -> None:
     assert hardened_read(PUBLIC_REPORT)
 
 
-def test_hardened_prevents_confused_deputy():
+def test_hardened_prevents_confused_deputy() -> None:
     assert not hardened_read(RESTRICTED_REPORT)
